@@ -19,6 +19,7 @@
 <!-- ======= BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
 <script src="/absensi/template/assets/plugins/apex/apexcharts.min.js"></script>
 <script src="/absensi/template/assets/plugins/apex/custom-apexcharts.js"></script>
+<script src="/absensi/template/assets/js/geolocation.js"></script>
 <!-- ======= End BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
 </body>
 

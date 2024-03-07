@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if ($_SESSION['status'] != 'login') {
+    header("location: login.php?pesan=belum_login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -15,27 +17,28 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <script src="/absensi/logout.js"></script>
+    <script src="logout.js"></script>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/absensi/template/assets/img/favicon.png">
+    <link rel="shortcut icon" href="template/assets/img/favicon.png">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 
     <!-- ======= BEGIN GLOBAL MANDATORY STYLES ======= -->
-    <link rel="stylesheet" href="/absensi/template/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/absensi/template/assets/fonts/icofont/icofont.min.css">
-    <link rel="stylesheet" href="/absensi/template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="template/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template/assets/fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
     <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
 
     <!-- ======= BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
-    <link rel="stylesheet" href="/absensi/template/assets/plugins/apex/apexcharts.css">
+    <link rel="stylesheet" href="template/assets/plugins/apex/apexcharts.css">
     <!-- ======= END BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="template/assets/js/geolocation.js"></script>
 
     <!-- ======= MAIN STYLES ======= -->
-    <link rel="stylesheet" href="/absensi/template/assets/css/style.css">
+    <link rel="stylesheet" href="template/assets/css/style.css">
     <!-- ======= END MAIN STYLES ======= -->
 
 </head>
@@ -53,8 +56,8 @@ session_start();
         <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html" class="default-logo"><img src="/absensi/template/assets/img/jasamarga.png" alt=""></a>
-                <a href="index.html" class="mobile-logo"><img src="/absensi/template/assets/img/mobile-logo.png" alt=""></a>
+                <a href="index.html" class="default-logo"><img src="template/assets/img/jasamarga.png" alt=""></a>
+                <a href="index.html" class="mobile-logo"><img src="template/assets/img/mobile-logo.png" alt=""></a>
             </div>
             <!-- End Logo -->
 
@@ -77,13 +80,13 @@ session_start();
                                         <div class="user-profile d-xl-flex align-items-center d-none">
                                             <!-- User Avatar -->
                                             <div class="user-avatar">
-                                                <img src="/absensi/template/assets/img/avatar/user.png" alt="">
+                                                <img src="template/assets/img/avatar/user.png" alt="">
                                             </div>
                                             <!-- End User Avatar -->
 
                                             <!-- User Info -->
                                             <div class="user-info">
-                                                <h4 class="user-name"><?php echo $_SESSION['name'] ?></h4>
+                                                <h4 class="user-name"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></h4>
                                                 <p class="user-email"><?php echo $_SESSION['email'] ?></p>
                                             </div>
                                             <!-- End User Info -->
@@ -105,7 +108,7 @@ session_start();
                                 <div class="main-header-menu d-block d-lg-none">
                                     <div class="header-toogle-menu">
                                         <!-- <i class="icofont-navigation-menu"></i> -->
-                                        <img src="/absensi/template/assets/img/menu.png" alt="">
+                                        <img src="template/assets/img/menu.png" alt="">
                                     </div>
                                 </div>
                                 <!-- End Main Header Menu -->
@@ -120,35 +123,35 @@ session_start();
                                         <!-- Main Header Language -->
                                         <div class="main-header-language">
                                             <a href="#" data-toggle="dropdown">
-                                                <img src="/absensi/template/assets/img/svg/globe-icon.svg" alt="">
+                                                <img src="template/assets/img/svg/globe-icon.svg" alt="">
                                             </a>
                                             <div class="dropdown-menu style--three">
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/usa.png" alt=""></span>
+                                                    <span><img src="template/assets/img/usa.png" alt=""></span>
                                                     USA
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/china.png" alt=""></span>
+                                                    <span><img src="template/assets/img/china.png" alt=""></span>
                                                     China
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/russia.png" alt=""></span>
+                                                    <span><img src="template/assets/img/russia.png" alt=""></span>
                                                     Russia
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/spain.png" alt=""></span>
+                                                    <span><img src="template/assets/img/spain.png" alt=""></span>
                                                     Spain
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/brazil.png" alt=""></span>
+                                                    <span><img src="template/assets/img/brazil.png" alt=""></span>
                                                     Brazil
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/france.png" alt=""></span>
+                                                    <span><img src="template/assets/img/france.png" alt=""></span>
                                                     France
                                                 </a>
                                                 <a href="#">
-                                                    <span><img src="/absensi/template/assets/img/algeria.png" alt=""></span>
+                                                    <span><img src="template/assets/img/algeria.png" alt=""></span>
                                                     Algeria
                                                 </a>
                                             </div>
@@ -159,7 +162,7 @@ session_start();
                                         <!-- Main Header Print -->
                                         <div class="main-header-print">
                                             <a href="#">
-                                                <img src="/absensi/template/assets/img/svg/print-icon.svg" alt="">
+                                                <img src="template/assets/img/svg/print-icon.svg" alt="">
                                             </a>
                                         </div>
                                         <!-- End Main Header Print -->
@@ -190,7 +193,7 @@ session_start();
                                                 <div class="theme-input-group header-search">
                                                     <input type="text" class="theme-input-style" placeholder="Search Here">
 
-                                                    <button type="submit"><img src="/absensi/template/assets/img/svg/search-icon.svg" alt="" class="svg"></button>
+                                                    <button type="submit"><img src="template/assets/img/svg/search-icon.svg" alt="" class="svg"></button>
                                                 </div>
                                             </form>
                                         </div>
@@ -200,7 +203,7 @@ session_start();
                                         <!-- Main Header Messages -->
                                         <div class="main-header-message">
                                             <a href="#" class="header-icon" data-toggle="dropdown">
-                                                <img src="/absensi/template/assets/img/svg/message-icon.svg" alt="" class="svg">
+                                                <img src="template/assets/img/svg/message-icon.svg" alt="" class="svg">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <!-- Dropdown Header -->
@@ -215,7 +218,7 @@ session_start();
                                                     <!-- Item Single -->
                                                     <a href="#" class="item-single d-flex media align-items-center">
                                                         <div class="figure">
-                                                            <img src="/absensi/template/assets/img/avatar/m1.png" alt="">
+                                                            <img src="template/assets/img/avatar/m1.png" alt="">
                                                             <span class="avatar-status bg-teal"></span>
                                                         </div>
                                                         <div class="content media-body">
@@ -231,7 +234,7 @@ session_start();
                                                     <!-- Item Single -->
                                                     <a href="#" class="item-single d-flex media align-items-center">
                                                         <div class="figure">
-                                                            <img src="/absensi/template/assets/img/avatar/m2.png" alt="">
+                                                            <img src="template/assets/img/avatar/m2.png" alt="">
                                                             <span class="avatar-status bg-teal"></span>
                                                         </div>
                                                         <div class="content media-body">
@@ -247,7 +250,7 @@ session_start();
                                                     <!-- Item Single -->
                                                     <a href="#" class="item-single d-flex media align-items-center">
                                                         <div class="figure">
-                                                            <img src="/absensi/template/assets/img/avatar/m3.png" alt="">
+                                                            <img src="template/assets/img/avatar/m3.png" alt="">
                                                             <span class="avatar-status bg-teal"></span>
                                                         </div>
                                                         <div class="content media-body">
@@ -263,7 +266,7 @@ session_start();
                                                     <!-- Item Single -->
                                                     <a href="#" class="item-single d-flex media align-items-center">
                                                         <div class="figure">
-                                                            <img src="/absensi/template/assets/img/avatar/m4.png" alt="">
+                                                            <img src="template/assets/img/avatar/m4.png" alt="">
                                                             <span class="avatar-status bg-teal"></span>
                                                         </div>
                                                         <div class="content media-body">
@@ -285,8 +288,8 @@ session_start();
                                         <!-- Main Header Notification -->
                                         <div class="main-header-notification">
                                             <a href="#" class="header-icon notification-icon" data-toggle="dropdown">
-                                                <span class="count" data-bg-img="/absensi/template/assets/img/count-bg.png">22</span>
-                                                <img src="/absensi/template/assets/img/svg/notification-icon.svg" alt="" class="svg">
+                                                <span class="count" data-bg-img="template/assets/img/count-bg.png">22</span>
+                                                <img src="template/assets/img/svg/notification-icon.svg" alt="" class="svg">
                                             </a>
                                             <div class="dropdown-menu style--two dropdown-menu-right">
                                                 <!-- Dropdown Header -->
@@ -378,13 +381,13 @@ session_start();
                     <ul class="nav">
                         <li class="nav-category">Main</li>
                         <li class="active">
-                            <a href="/absensi/dashboard">
+                            <a href="/">
                                 <i class="icofont-pie-chart"></i>
                                 <span class="link-title">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/absensi/absensi">
+                            <a href="/check-in">
                                 <i class="icofont-pie-chart"></i>
                                 <span class="link-title">Kehadiran</span>
                             </a>

@@ -2,6 +2,7 @@
 <div class="main-content">
     <div class="container-fluid">
 
+        <button onclick="getLocation()">Get Location</button>
 
 
     </div>

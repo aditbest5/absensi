@@ -13,10 +13,10 @@
                                     <p class="font-14">Increased</p>
                                 </div>
                                 <h3 class="card-subtitle mb-2">Congratulation!</h3>
-                                <p class="font-16">You've finished all of your tasks for this week.</p>
+                                <p class="font-16">Youve finished all of your tasks for this week.</p>
                             </div>
                             <div class="congratulation-img">
-                                <img src="/absensi/template/assets/img/media/congratulation-img.png" alt="">
+                                <img src="template/assets/img/media/congratulation-img.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                 <div class="ProgressBar-wrap position-relative mb-4">
                                     <div class="ProgressBar ProgressBar_1" data-progress="75">
                                         <svg class="ProgressBar-contentCircle" viewBox="0 0 200 200">
-                                            <!-- on défini le l'angle et le centre de rotation du cercle -->
+                                            <!-- on défini le langle et le centre de rotation du cercle -->
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-background" cx="100" cy="100" r="8" />
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-circle" cx="100" cy="100" r="85" />
                                         </svg>
@@ -147,15 +147,15 @@
 
                                 <div class="d-flex flex-wrap mb-2 progress-info">
                                     <div>Users</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg"> 2.6k</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">568</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg"> 2.6k</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">568</div>
                                 </div>
 
 
                                 <div class="d-flex flex-wrap progress-info">
                                     <div>Disabled</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">25</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">25</div>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,6 @@
                                 <div class="ProgressBar-wrap position-relative mb-4">
                                     <div class="ProgressBar ProgressBar_2" data-progress="35">
                                         <svg class="ProgressBar-contentCircle" viewBox="0 0 200 200">
-                                            <!-- on défini le l'angle et le centre de rotation du cercle -->
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-background" cx="100" cy="100" r="85" />
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-circle" cx="100" cy="100" r="85" />
                                         </svg>
@@ -182,15 +181,15 @@
 
                                 <div class="d-flex flex-wrap mb-2 progress-info">
                                     <div>Net Profit</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg"> 268k</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">89k</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg"> 268k</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">89k</div>
                                 </div>
 
 
                                 <div class="d-flex flex-wrap progress-info">
                                     <div>Expenses</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">1.5k</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">1.5k</div>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +205,6 @@
                                 <div class="ProgressBar-wrap position-relative mb-4">
                                     <div class="ProgressBar ProgressBar_3" data-progress="70">
                                         <svg class="ProgressBar-contentCircle" viewBox="0 0 200 200">
-                                            <!-- on défini le l'angle et le centre de rotation du cercle -->
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-background" cx="100" cy="100" r="85" stroke-width="20" />
                                             <circle transform="rotate(135, 100, 100)" class="ProgressBar-circle" cx="100" cy="100" r="85" stroke-width="20" />
                                         </svg>
@@ -217,15 +215,15 @@
 
                                 <div class="d-flex flex-wrap mb-2 progress-info">
                                     <div>Employee</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg">15</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">3</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg">15</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">3</div>
                                 </div>
 
 
                                 <div class="d-flex flex-wrap progress-info">
                                     <div>Production</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
-                                    <div><img src="/absensi/template/assets/img/svg/caret-down.svg" alt="" class="svg">1.2k</div>
+                                    <div><img src="template/assets/img/svg/caret-up.svg" alt="" class="svg">1.26k</div>
+                                    <div><img src="template/assets/img/svg/caret-down.svg" alt="" class="svg">1.2k</div>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +312,7 @@
 
                                         <div class="d-flex align-items-center">
                                             <a href="pages/apps/todolist/add-new.html" class="btn-circle">
-                                                <img src="/absensi/template/assets/img/svg/plus_white.svg" alt="" class="svg">
+                                                <img src="template/assets/img/svg/plus_white.svg" alt="" class="svg">
                                             </a>
 
                                             <div class="dropdown-button">
@@ -358,16 +356,16 @@
                                         <div class="d-flex">
                                             <!-- Assign To -->
                                             <div class="assign_to">
-                                                <img src="/absensi/template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
+                                                <img src="template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
                                                 <div class="assign-content">
                                                     <div class="font-12 text-warning">Back-End</div>
-                                                    <img src="/absensi/template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
+                                                    <img src="template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
                                                 </div>
                                             </div>
                                             <!-- End Assign To -->
 
                                             <!-- Drag Icon -->
-                                            <img src="/absensi/template/assets/img/svg/dragicon.svg" alt="" class="svg">
+                                            <img src="template/assets/img/svg/dragicon.svg" alt="" class="svg">
                                             <!-- End Drag Icon -->
 
                                             <!-- Dropdown Button -->
@@ -413,16 +411,16 @@
                                         <div class="d-flex">
                                             <!-- Assign To -->
                                             <div class="assign_to">
-                                                <img src="/absensi/template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
+                                                <img src="template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
                                                 <div class="assign-content">
                                                     <div class="font-12 text-warning">Back-End</div>
-                                                    <img src="/absensi/template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
+                                                    <img src="template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
                                                 </div>
                                             </div>
                                             <!-- End Assign To -->
 
                                             <!-- Drag Icon -->
-                                            <img src="/absensi/template/assets/img/svg/dragicon.svg" alt="" class="svg">
+                                            <img src="template/assets/img/svg/dragicon.svg" alt="" class="svg">
                                             <!-- End Drag Icon -->
 
                                             <!-- Dropdown Button -->
@@ -468,16 +466,16 @@
                                         <div class="d-flex">
                                             <!-- Assign To -->
                                             <div class="assign_to">
-                                                <img src="/absensi/template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
+                                                <img src="template/assets/img/svg/Info.svg" alt="" class="svg mr-2 mb-1">
                                                 <div class="assign-content">
                                                     <div class="font-12 text-warning">Back-End</div>
-                                                    <img src="/absensi/template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
+                                                    <img src="template/assets/img/avatar/info-avatar.png" alt="" class="assign-avatar">
                                                 </div>
                                             </div>
                                             <!-- End Assign To -->
 
                                             <!-- Drag Icon -->
-                                            <img src="/absensi/template/assets/img/svg/dragicon.svg" alt="" class="svg">
+                                            <img src="template/assets/img/svg/dragicon.svg" alt="" class="svg">
                                             <!-- End Drag Icon -->
 
                                             <!-- Dropdown Button -->
@@ -522,11 +520,11 @@
 
                                         <div class="d-flex">
                                             <!-- Drag Icon -->
-                                            <img src="/absensi/template/assets/img/svg/dragicon.svg" alt="" class="svg mr-2">
+                                            <img src="template/assets/img/svg/dragicon.svg" alt="" class="svg mr-2">
                                             <!-- End Drag Icon -->
                                             <!-- Assign To -->
                                             <div class="assign_to">
-                                                <img src="/absensi/template/assets/img/svg/Info.svg" alt="" class="svg mb-1">
+                                                <img src="template/assets/img/svg/Info.svg" alt="" class="svg mb-1">
                                             </div>
                                             <!-- End Assign To -->
 
@@ -572,11 +570,11 @@
 
                                         <div class="d-flex">
                                             <!-- Drag Icon -->
-                                            <img src="/absensi/template/assets/img/svg/dragicon.svg" alt="" class="svg mr-2">
+                                            <img src="template/assets/img/svg/dragicon.svg" alt="" class="svg mr-2">
                                             <!-- End Drag Icon -->
                                             <!-- Assign To -->
                                             <div class="assign_to">
-                                                <img src="/absensi/template/assets/img/svg/Info.svg" alt="" class="svg mb-1">
+                                                <img src="template/assets/img/svg/Info.svg" alt="" class="svg mb-1">
                                             </div>
                                             <!-- End Assign To -->
 
@@ -690,7 +688,6 @@
                                     <div class="ProgressBar-wrap2 position-relative">
                                         <div class="ProgressBar ProgressBar_4" data-progress="67">
                                             <svg class="ProgressBar-contentCircle" viewBox="0 0 200 200">
-                                                <!-- on défini le l'angle et le centre de rotation du cercle -->
                                                 <circle transform="rotate(-90, 100, 100)" class="ProgressBar-background" cx="100" cy="100" r="85" />
                                                 <circle transform="rotate(-90, 100, 100)" class="ProgressBar-circle" cx="100" cy="100" r="85" />
                                             </svg>
@@ -705,7 +702,6 @@
                                     <div class="ProgressBar-wrap2 position-relative">
                                         <div class="ProgressBar ProgressBar_5" data-progress="48">
                                             <svg class="ProgressBar-contentCircle" viewBox="0 0 200 200">
-                                                <!-- on défini le l'angle et le centre de rotation du cercle -->
                                                 <circle transform="rotate(-90, 100, 100)" class="ProgressBar-background" cx="100" cy="100" r="85" />
                                                 <circle transform="rotate(-90, 100, 100)" class="ProgressBar-circle" cx="100" cy="100" r="85" />
                                             </svg>
@@ -761,5 +757,4 @@
         </div>
     </div>
 </div>
-
 <?php include('layouts/footer.php') ?>
