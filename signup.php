@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['status']) == 'login') {
-    header("location: dashboard.php");
+    header("location: dashboard");
 }
 ?>
 <!DOCTYPE html>
@@ -81,7 +81,7 @@ if (isset($_SESSION['status']) == 'login') {
                             text: data?.status,
                             icon: "success",
                         }).then(function() {
-                            window.location.href = "dashboard.php";
+                            window.location.href = "dashboard";
                         });
                     } else {
                         swal({
@@ -105,7 +105,7 @@ if (isset($_SESSION['status']) == 'login') {
             <div class="card justify-content-center auth-card">
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
-                        <h4 class="mb-5 font-20">Welcome To Dashmin</h4>
+                        <h4 class="mb-5 font-20">Welcome To Jasamarga</h4>
 
                         <form onsubmit="return signup_process(event)">
                             <div class="row">
@@ -166,7 +166,7 @@ if (isset($_SESSION['status']) == 'login') {
 
                             <div class="d-flex align-items-center pt-4">
                                 <button type="submit" class="btn long mr-20">Register</button>
-                                <span class="font-12 d-block"><a href="login.php" class="bold">Log In</a>,If you already have an account.</span>
+                                <span class="font-12 d-block"><a href="login" class="bold">Log In</a>,If you already have an account.</span>
                             </div>
                         </form>
                     </div>

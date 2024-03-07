@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['status']) == 'login') {
-    header("location: dashboard.php");
+    header("location: dashboard");
 }
 ?>
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['status']) == 'login') {
                             text: data?.status,
                             icon: "success",
                         }).then(function() {
-                            window.location.href = "dashboard.php";
+                            window.location.href = "dashboard";
                         });
                     } else {
                         swal({
@@ -135,7 +135,7 @@ if (isset($_SESSION['status']) == 'login') {
 
                             <div class="d-flex align-items-center">
                                 <button type="submit" class="btn long mr-20">Log In</button>
-                                <span class="font-12 d-block"><a href="signup.php" class="bold">Sign Up</a>,If you have no account.</span>
+                                <span class="font-12 d-block"><a href="signup" class="bold">Sign Up</a>,If you have no account.</span>
                             </div>
                         </form>
                     </div>

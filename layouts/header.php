@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['status'] != 'login') {
-    header("location: login.php?pesan=belum_login");
+    header("location: login?pesan=belum_login");
 }
 ?>
 <!DOCTYPE html>
@@ -387,7 +387,7 @@ if ($_SESSION['status'] != 'login') {
                             </a>
                         </li>
                         <li>
-                            <a href="/check-in">
+                            <a href="check-in">
                                 <i class="icofont-pie-chart"></i>
                                 <span class="link-title">Kehadiran</span>
                             </a>

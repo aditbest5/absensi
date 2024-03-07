@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /absensi
+
+# Mengarahkan /signup ke /signup.php
+
+RewriteRule ^signup$ signup.php [L]
+
+# Mengarahkan /login ke /login.php
+
+RewriteRule ^login$ login.php [L]
+RewriteRule ^dashboard$ dashboard.php [L]
