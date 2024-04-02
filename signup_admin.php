@@ -34,9 +34,9 @@ if (isset($_SESSION['status']) == 'login') {
     <link rel="stylesheet" href="/absensi/template/assets/css/style.css">
     <!-- ======= END MAIN STYLES ======= -->
     <script>
-        function signup_process(e) {
+        function signup_admin(e) {
             e.preventDefault();
-            let url = "cek_login.php?act=register";
+            let url = "cek_login.php?act=register&role=admin";
             let username = document.getElementById("username").value
             let name = document.getElementById("name").value
             let nik = document.getElementById("nik").value
@@ -107,7 +107,7 @@ if (isset($_SESSION['status']) == 'login') {
                     <div class="col-xl-10">
                         <h4 class="mb-5 font-20">Welcome To Jasamarga</h4>
 
-                        <form onsubmit="return signup_process(event)">
+                        <form onsubmit="return signup_admin(event)">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <!-- Form Group -->

@@ -4,8 +4,10 @@ RewriteBase /absensi
 # Mengarahkan /signup ke /signup.php
 
 RewriteRule ^signup$ signup.php [L]
+RewriteRule ^signup-admin$ signup_admin.php [L]
 
 # Mengarahkan /login ke /login.php
 
 RewriteRule ^login$ login.php [L]
 RewriteRule ^dashboard$ dashboard.php [L]
+RewriteRule ^check-in$ views/absensi.php [L]
