@@ -99,7 +99,6 @@ if ($_SESSION['status'] != 'login') {
                                             <button class="" href="#">Settings</button>
                                             <button class="btn-info" onclick="logout()">Log Out</button>
                                         </div>
-
                                     </div>
                                 </div>
                                 <!-- End Main Header User -->
@@ -393,18 +392,16 @@ if ($_SESSION['status'] != 'login') {
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="icofont-ui-user"></i>
-                                <span class="link-title">User Profile</span>
+                            <a href="check-in">
+                                <i class="icofont-book-alt"></i>
+                                <span class="link-title">Log Absensi</span>
                             </a>
-
-                            <!-- Sub Menu -->
-                            <ul class="nav sub-menu">
-                                <li><a href="pages/pages/user-profile/news-feed.html">My Profile</a></li>
-                                <li><a href="pages/pages/user-profile/about.html">Log Absensi</a></li>
-                                <li><a href="pages/pages/user-profile/gallery.html">Settings</a></li>
-                            </ul>
-                            <!-- End Sub Menu -->
+                        </li>
+                        <li>
+                            <a href="check-in">
+                                <i class="icofont-ui-settings"></i>
+                                <span class="link-title">Settings</span>
+                            </a>
                         </li>
                     </ul>
                     <!-- End Nav -->
