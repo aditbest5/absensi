@@ -36,11 +36,13 @@ if ($_SESSION['status'] != 'login') {
     <!-- ======= END BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="template/assets/js/geolocation.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
 
     <!-- ======= MAIN STYLES ======= -->
     <link rel="stylesheet" href="template/assets/css/style.css">
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quagga"></script>
+    <script src="/absensi/template/assets/js/jquery.min.js"></script>
 
 
     <!-- ======= END MAIN STYLES ======= -->
@@ -60,8 +62,8 @@ if ($_SESSION['status'] != 'login') {
         <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html" class="default-logo"><img src="template/assets/img/jasamarga.png" alt=""></a>
-                <a href="index.html" class="mobile-logo"><img src="template/assets/img/mobile-logo.png" alt=""></a>
+                <a href="dashboard" class="default-logo"><img src="template/assets/img/jasamarga.png" alt=""></a>
+                <a href="dashboard" class="mobile-logo"><img src="template/assets/img/jasamarga.png" alt=""></a>
             </div>
             <!-- End Logo -->
 
@@ -396,7 +398,7 @@ if ($_SESSION['status'] != 'login') {
                             </a>
                         </li>
                         <li>
-                            <a href="check-in">
+                            <a href="log-absensi">
                                 <i class="icofont-book-alt"></i>
                                 <span class="link-title">Log Absensi</span>
                             </a>

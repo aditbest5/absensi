@@ -101,8 +101,8 @@ if (isset($_SESSION['status']) == 'login') {
                         <form onsubmit="return login_process(event)">
                             <!-- Form Group -->
                             <div class="form-group mb-20">
-                                <label for="email" class="mb-2 font-14 bold black">Email Address</label>
-                                <input type="email" id="email" class="theme-input-style" placeholder="Email Address">
+                                <label for="email" class="mb-2 font-14 bold black">Email Or NIK</label>
+                                <input type="text" id="email" class="theme-input-style" placeholder="Email Address">
                             </div>
                             <!-- End Form Group -->
 
