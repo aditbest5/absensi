@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 10:44 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Waktu pembuatan: 29 Bulan Mei 2024 pada 03.28
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,45 +24,82 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_users`
+-- Struktur dari tabel `tbl_kehadiran`
+--
+
+CREATE TABLE `tbl_kehadiran` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `operasi` varchar(20) NOT NULL,
+  `pilih_jadwal` varchar(10) NOT NULL,
+  `longitude` double NOT NULL,
+  `latitude` double NOT NULL,
+  `created_date` date NOT NULL,
+  `status` enum('checkin','checkout') NOT NULL DEFAULT 'checkout'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_kehadiran`
+--
+
+INSERT INTO `tbl_kehadiran` (`id`, `user_id`, `operasi`, `pilih_jadwal`, `longitude`, `latitude`, `created_date`, `status`) VALUES
+(22, 14, 'operasional', 'shift1', 106.5981811, -6.2472121, '2024-04-14', 'checkout'),
+(24, 14, 'operasional', 'shift1', 106.5981747, -6.2471957, '2024-04-15', 'checkin');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_users`
 --
 
 CREATE TABLE `tbl_users` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(30) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `nik` varchar(30) NOT NULL,
   `email` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','pegawai','supervisor') NOT NULL DEFAULT 'pegawai'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_users`
+-- Dumping data untuk tabel `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `role`) VALUES
-(12, 'Aditya', 'Aprianto', 'aditbest5@gmail.com', 'aditya97', '$2y$10$55Kl84olHyZpG1SMxINZoevD3VfFvLuKMjZwZhGKpDA25ReEbvJPK', 'pegawai');
+INSERT INTO `tbl_users` (`id`, `name`, `nik`, `email`, `username`, `password`, `role`) VALUES
+(14, 'ADITYA APRIANTO', '1111700008', 'adityaaprianto68@gma', 'aditya97', '$2y$10$hf/.8Bn/qHib4NUo0Q0dKe/4yev13RhQAoquxGO27W.fmAQLIXFxO', 'pegawai');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_users`
+-- Indeks untuk tabel `tbl_kehadiran`
+--
+ALTER TABLE `tbl_kehadiran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_users`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_users`
+-- AUTO_INCREMENT untuk tabel `tbl_kehadiran`
+--
+ALTER TABLE `tbl_kehadiran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
