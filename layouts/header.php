@@ -43,6 +43,13 @@ if ($_SESSION['status'] != 'login') {
     <link rel="stylesheet" href="template/assets/css/style.css">
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/absensi/template/assets/js/jquery.min.js"></script>
+    <!-- SheetJS (XLSX) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <!-- PrintThis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
 
 
     <!-- ======= END MAIN STYLES ======= -->
@@ -101,8 +108,7 @@ if ($_SESSION['status'] != 'login') {
                                     <div class="dropdown-menu">
                                         <div class="d-flex flex-column justify-content-between">
                                             <button class="" href="#">My Profile</button>
-                                            <button class="" href="#">task</button>
-                                            <button class="" href="#">Settings</button>
+                                            <button class="" href="setting">Settings</button>
                                             <button class="btn-info" onclick="logout()">Log Out</button>
                                         </div>
                                     </div>
@@ -124,54 +130,6 @@ if ($_SESSION['status'] != 'login') {
                             <!-- Header Right -->
                             <div class="main-header-right d-flex justify-content-end">
                                 <ul class="nav">
-                                    <li class="ml-0">
-                                        <!-- Main Header Language -->
-                                        <div class="main-header-language">
-                                            <a href="#" data-toggle="dropdown">
-                                                <img src="template/assets/img/svg/globe-icon.svg" alt="">
-                                            </a>
-                                            <div class="dropdown-menu style--three">
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/usa.png" alt=""></span>
-                                                    USA
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/china.png" alt=""></span>
-                                                    China
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/russia.png" alt=""></span>
-                                                    Russia
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/spain.png" alt=""></span>
-                                                    Spain
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/brazil.png" alt=""></span>
-                                                    Brazil
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/france.png" alt=""></span>
-                                                    France
-                                                </a>
-                                                <a href="#">
-                                                    <span><img src="template/assets/img/algeria.png" alt=""></span>
-                                                    Algeria
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End Main Header Language -->
-                                    </li>
-                                    <li class="ml-0 d-none d-lg-flex">
-                                        <!-- Main Header Print -->
-                                        <div class="main-header-print">
-                                            <a href="#">
-                                                <img src="template/assets/img/svg/print-icon.svg" alt="">
-                                            </a>
-                                        </div>
-                                        <!-- End Main Header Print -->
-                                    </li>
                                     <li class="d-none d-lg-flex">
                                         <!-- Main Header Time -->
                                         <div class="main-header-date-time text-right">
@@ -184,13 +142,7 @@ if ($_SESSION['status'] != 'login') {
                                         </div>
                                         <!-- End Main Header Time -->
                                     </li>
-                                    <li class="d-none d-lg-flex">
-                                        <!-- Main Header Button -->
-                                        <div class="main-header-btn ml-md-1">
-                                            <a href="#" class="btn">Pending Tasks</a>
-                                        </div>
-                                        <!-- End Main Header Button -->
-                                    </li>
+
                                     <li class="order-2 order-sm-0">
                                         <!-- Main Header Search -->
                                         <div class="main-header-search">
@@ -204,91 +156,7 @@ if ($_SESSION['status'] != 'login') {
                                         </div>
                                         <!-- End Main Header Search -->
                                     </li>
-                                    <li>
-                                        <!-- Main Header Messages -->
-                                        <div class="main-header-message">
-                                            <a href="#" class="header-icon" data-toggle="dropdown">
-                                                <img src="template/assets/img/svg/message-icon.svg" alt="" class="svg">
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- Dropdown Header -->
-                                                <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                                    <h5>3 Unread messages</h5>
-                                                    <a href="#" class="text-mute d-inline-block">Clear all</a>
-                                                </div>
-                                                <!-- End Dropdown Header -->
 
-                                                <!-- Dropdown Body -->
-                                                <div class="dropdown-body">
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex media align-items-center">
-                                                        <div class="figure">
-                                                            <img src="template/assets/img/avatar/m1.png" alt="">
-                                                            <span class="avatar-status bg-teal"></span>
-                                                        </div>
-                                                        <div class="content media-body">
-                                                            <div class="d-flex align-items-center mb-2">
-                                                                <h6 class="name">Sender Name</h6>
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex media align-items-center">
-                                                        <div class="figure">
-                                                            <img src="template/assets/img/avatar/m2.png" alt="">
-                                                            <span class="avatar-status bg-teal"></span>
-                                                        </div>
-                                                        <div class="content media-body">
-                                                            <div class="d-flex align-items-center mb-2">
-                                                                <h6 class="name">Tonya Lee</h6>
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex media align-items-center">
-                                                        <div class="figure">
-                                                            <img src="template/assets/img/avatar/m3.png" alt="">
-                                                            <span class="avatar-status bg-teal"></span>
-                                                        </div>
-                                                        <div class="content media-body">
-                                                            <div class="d-flex align-items-center mb-2">
-                                                                <h6 class="name">Cathy Nichols</h6>
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex media align-items-center">
-                                                        <div class="figure">
-                                                            <img src="template/assets/img/avatar/m4.png" alt="">
-                                                            <span class="avatar-status bg-teal"></span>
-                                                        </div>
-                                                        <div class="content media-body">
-                                                            <div class="d-flex align-items-center mb-2">
-                                                                <h6 class="name">Hubert Griffith</h6>
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-                                                </div>
-                                                <!-- End Dropdown Body -->
-                                            </div>
-                                        </div>
-                                        <!-- End Main Header Messages -->
-                                    </li>
                                     <li>
                                         <!-- Main Header Notification -->
                                         <div class="main-header-notification">
@@ -404,7 +272,7 @@ if ($_SESSION['status'] != 'login') {
                             </a>
                         </li>
                         <li>
-                            <a href="check-in">
+                            <a href="setting">
                                 <i class="icofont-ui-settings"></i>
                                 <span class="link-title">Settings</span>
                             </a>

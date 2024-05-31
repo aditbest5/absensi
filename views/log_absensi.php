@@ -7,25 +7,33 @@
                     <h4 class="font-20">Log Absensi</h4>
 
                     <div class="d-flex flex-wrap">
-                        <!-- Date Picker -->
-                        <div class="dashboard-date style--six mr-20 mt-3 mt-sm-0">
-                            <span class="input-group-addon">
-                                <img src="../template/assets/img/svg/calender-color.svg" alt="" class="svg">
-                            </span>
+                        <!-- Month Picker -->
+                        <div class="mr-20 mt-3 mt-sm-0">
 
-                            <input type="text" id="default-date" value="<?php echo date('d M Y') ?>" />
+                            <select id="month-picker" class="form-control">
+                                <?php
+                                $months = [
+                                    '01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April',
+                                    '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August',
+                                    '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'
+                                ];
+                                $current_month = date('m');
+                                foreach ($months as $num => $name) {
+                                    echo "<option value='$num'" . ($num == $current_month ? " selected" : "") . ">$name</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
-                        <!-- End Date Picker -->
-
+                        <!-- End Month Picker -->
 
                         <!-- Dropdown Button -->
                         <div class="dropdown-button mt-3 mt-sm-0">
                             <button type="button" class="btn style--two orange" data-toggle="dropdown">Download <i class="icofont-simple-down"></i></button>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Print</a>
-                                <a class="dropdown-item" href="#">EXL</a>
-                                <a class="dropdown-item" href="#">PDF</a>
+                                <button onclick="printTable()" class="dropdown-item" href="#">Print</button>
+                                <button onclick="downloadExcel()" class="dropdown-item" href="#">EXL</button>
+                                <button onclick="downloadPDF()" class="dropdown-item" href="#">PDF</button>
                             </div>
                         </div>
                         <!-- End Dropdown Button -->
@@ -44,51 +52,10 @@
                             <th>Longitude <img src="../template/assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
                             <th>Latitude <img src="../template/assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
                             <th>Status <img src="../template/assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                        include "../config/connection.php";
-                        // Iterasi dari tanggal 1 sampai akhir bulan
-                        $current_date = date('Y-m-01'); // Tanggal awal bulan ini
-                        $last_day = date('Y-m-t'); // Tanggal akhir bulan ini
-                        while ($current_date <= $last_day) {
-                            // Periksa apakah ada data absensi pada tanggal ini
-                            // Jika ada, tampilkan data absensi
-                            // Jika tidak ada, tampilkan status "libur"
-                            // (Anda perlu mengubah ini sesuai dengan hasil query dari database Anda)
-                            $query = mysqli_query($conn, "SELECT * FROM tbl_kehadiran where user_id = '" . $_SESSION['user_id'] . "' and created_date = '" . $current_date . "'");
-                            $attendance_data = mysqli_fetch_array($query); // Anda perlu mengisi data absensi dari database
-                            if ($attendance_data) {
-                                // Tampilkan data absensi
-                                echo "<tr>";
-                                echo "<td>$current_date</td>"; // Tampilkan tanggal
-                                echo "<td> $_SESSION[nik] </td>"; // Tampilkan status "hadir"
-                                echo "<td>$attendance_data[pilih_jadwal]</td>"; // Tampilkan jadwal shift
-                                echo "<td>$attendance_data[operasi]</td>"; // Tampilkan operasi
-                                echo "<td>$attendance_data[longitude]</td>"; // Tampilkan longitude
-                                echo "<td>$attendance_data[latitude]</td>"; // Tampilkan latitude
-                                echo "<td><button type='button' class='status-btn un_paid'>Hadir</button></td>";
-                                echo "<td><a href='invoice-details.html' class='details-btn'>View Details <i class='icofont-arrow-right'></i></a></td>";
-                                echo "</tr>";
-                            } else {
-                                // Tampilkan status "libur"
-                                echo "<tr>";
-                                echo "<td>$current_date</td>"; // Tampilkan tanggal
-                                echo "<td>" . $_SESSION['nik'] . "</td>"; // Tampilkan status "hadir"   
-                                echo "<td>-</td>"; // Kolom jadwal shift diisi dengan "-"
-                                echo "<td>-</td>"; // Kolom operasi diisi dengan "-"
-                                echo "<td>-</td>"; // Kolom longitude diisi dengan "-"
-                                echo "<td>-</td>"; // Kolom latitude diisi dengan "-"
-                                echo "<td>Libur</td>"; // Tampilkan status "libur"
-                                echo "<td><a href='invoice-details.html' class='details-btn'>View Details <i class='icofont-arrow-right'></i></a></td>";
-                                echo "</tr>";
-                            }
-                            // Pindah ke tanggal berikutnya
-                            $current_date = date('Y-m-d', strtotime($current_date . ' +1 day'));
-                        }
-                        ?>
+                    <tbody id="attendance-table">
+                        <!-- Data akan dimuat di sini oleh JavaScript -->
                     </tbody>
                 </table>
                 <!-- End Invoice List Table -->
@@ -96,4 +63,71 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        loadAttendanceForCurrentMonth();
+
+        document.getElementById('month-picker').addEventListener('change', function() {
+            var month = this.value;
+            fetchAttendanceData(month);
+        });
+    });
+
+    function loadAttendanceForCurrentMonth() {
+        var currentMonth = new Date().getMonth() + 1; // January is 0!
+        if (currentMonth < 10) {
+            currentMonth = '0' + currentMonth;
+        }
+        fetchAttendanceData(currentMonth);
+    }
+
+    function fetchAttendanceData(month) {
+        fetch('api.php?act=get_month', {
+                method: 'POST',
+                body: 'month=' + month,
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded",
+                },
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('attendance-table').innerHTML = data;
+            });
+    }
+    // Fungsi untuk mengonversi tabel menjadi Excel
+    function downloadExcel() {
+        let table = document.querySelector('.dh-table');
+        let workbook = XLSX.utils.table_to_book(table, {
+            sheet: "Sheet1"
+        });
+        XLSX.writeFile(workbook, 'log_absensi.xlsx');
+    }
+
+    // Fungsi untuk mengonversi tabel menjadi PDF
+    function downloadPDF() {
+        let {
+            jsPDF
+        } = window.jspdf;
+        let doc = new jsPDF();
+
+        doc.autoTable({
+            html: '.dh-table',
+            startY: 20,
+            headStyles: {
+                fillColor: [0, 0, 0]
+            }, // Ubah warna sesuai kebutuhan
+            theme: 'grid'
+        });
+
+        doc.save('log_absensi.pdf');
+    }
+
+    // Fungsi untuk mencetak tabel
+    function printTable() {
+        $('.dh-table').printThis({
+            importCSS: true,
+            importStyle: true
+        });
+    }
+</script>
 <?php include('../layouts/footer.php'); ?>
