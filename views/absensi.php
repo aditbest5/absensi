@@ -316,8 +316,8 @@
     function showPosition(position) {
         var longitude = position.coords.longitude;
         var latitude = position.coords.latitude;
-        var expectedLongitude = 106.84513; // Ganti dengan longitude yang diharapkan
-        var expectedLatitude = -6.21462; // Ganti dengan latitude yang diharapkan
+        var expectedLongitude = 106.6041344; // Ganti dengan longitude yang diharapkan
+        var expectedLatitude = -6.2521344; // Ganti dengan latitude yang diharapkan
         var tolerance = 0.1; // Toleransi untuk perbandingan
         if (document.getElementById("longitude") && document.getElementById('latitude')) {
             document.getElementById("longitude").value = longitude;
