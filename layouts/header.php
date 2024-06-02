@@ -93,7 +93,7 @@ if ($_SESSION['status'] != 'login') {
                                         <div class="user-profile d-xl-flex align-items-center d-none">
                                             <!-- User Avatar -->
                                             <div class="user-avatar">
-                                                <img src="template/assets/img/avatar/user.png" alt="">
+                                                <img src="template/assets/img/avatar/profil.jpg" alt="">
                                             </div>
                                             <!-- End User Avatar -->
 
@@ -159,68 +159,7 @@ if ($_SESSION['status'] != 'login') {
 
                                     <li>
                                         <!-- Main Header Notification -->
-                                        <div class="main-header-notification">
-                                            <a href="#" class="header-icon notification-icon" data-toggle="dropdown">
-                                                <span class="count" data-bg-img="template/assets/img/count-bg.png">22</span>
-                                                <img src="template/assets/img/svg/notification-icon.svg" alt="" class="svg">
-                                            </a>
-                                            <div class="dropdown-menu style--two dropdown-menu-right">
-                                                <!-- Dropdown Header -->
-                                                <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                                    <h5>5 New notifications</h5>
-                                                    <a href="#" class="text-mute d-inline-block">Clear all</a>
-                                                </div>
-                                                <!-- End Dropdown Header -->
 
-                                                <!-- Dropdown Body -->
-                                                <div class="dropdown-body">
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex align-items-center">
-                                                        <div class="content">
-                                                            <div class="mb-2">
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus amet.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex align-items-center">
-                                                        <div class="content">
-                                                            <div class="mb-2">
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex align-items-center">
-                                                        <div class="content">
-                                                            <div class="mb-2">
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-
-                                                    <!-- Item Single -->
-                                                    <a href="#" class="item-single d-flex align-items-center">
-                                                        <div class="content">
-                                                            <div class="mb-2">
-                                                                <p class="time">2 min ago</p>
-                                                            </div>
-                                                            <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                        </div>
-                                                    </a>
-                                                    <!-- End Item Single -->
-                                                </div>
-                                                <!-- End Dropdown Body -->
-                                            </div>
-                                        </div>
                                         <!-- End Main Header Notification -->
                                     </li>
                                 </ul>

@@ -178,7 +178,7 @@ if (isset($_SESSION['status']) == 'login') {
 
     <!-- Footer -->
     <footer class="footer style--two">
-        Dashmin © 2020 created by <a href="https://www.themelooks.com/"> ThemeLooks</a>
+        Jasamarga © 2024 created by <a href="https://www.themelooks.com/"> Andhika</a>
     </footer>
     <!-- End Footer -->
 
