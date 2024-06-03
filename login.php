@@ -125,17 +125,12 @@ if (isset($_SESSION['status']) == 'login') {
                                     <label for="checkbox" class="font-14">Remember Me</label>
                                 </div>
 
-                                <a href="forget-pass.html" class="font-12 text_color">Forgot Password?</a>
                             </div>
 
-                            <div class="mb-30">
-                                <a href="#" class="light-btn mr-3 mb-20">Log In With Facebook</a>
-                                <a href="#" class="light-btn style--two mb-20">Log In With Gmail</a>
-                            </div>
+
 
                             <div class="d-flex align-items-center">
                                 <button type="submit" class="btn long mr-20">Log In</button>
-                                <span class="font-12 d-block"><a href="signup" class="bold">Sign Up</a>,If you have no account.</span>
                             </div>
                         </form>
                     </div>
