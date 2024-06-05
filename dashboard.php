@@ -2,8 +2,8 @@
  <div class="main-content">
      <div class="card mb-3 h-100">
          <div class="card-body text-center">
-             <h3 class="mt-4">Selamat Datang, <?php echo $_SESSION['name'] ?> !</h3>\
-             <h4 class="">Jangan Lupa Absen!</h4>
+             <h3 class="mt-4">Selamat Datang, <?php echo $_SESSION['name'] ?> !</h3>
+             <h4 class="mt-4">Jangan Lupa Absen!</h4>
          </div>
          <div class="card-footer">
              <marquee behavior="scroll" direction="left" id="running-text">

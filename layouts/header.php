@@ -100,7 +100,7 @@ if ($_SESSION['status'] != 'login') {
                                             <!-- User Info -->
                                             <div class="user-info">
                                                 <h4 class="user-name"><?php echo $_SESSION['name'] ?></h4>
-                                                <p class="user-email"><?php echo $_SESSION['email'] ?></p>
+                                                <!-- <p class="user-email"><?php echo $_SESSION['email'] ?></p> -->
                                             </div>
                                             <!-- End User Info -->
                                         </div>
