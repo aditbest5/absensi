@@ -6,7 +6,6 @@
 
             <?php
             include("../config/connection.php");
-
             if (isset($_SESSION['user_id'])) {
                 $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE id = ?");
                 $stmt->bind_param("i", $_SESSION['user_id']);
@@ -15,6 +14,8 @@
                 $data = $result->fetch_assoc();
                 $stmt->close();
             }
+            echo $_SESSION['user_id'];
+
             ?>
             <!-- Form -->
             <form action="update_profil.php?act=update_profil" method="POST">

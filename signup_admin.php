@@ -36,7 +36,7 @@ if (isset($_SESSION['status']) == 'login') {
     <script>
         function signup_admin(e) {
             e.preventDefault();
-            let url = "cek_login.php?act=register&role=admin";
+            let url = "cek_login.php?act=register-admin&role=admin";
             let username = document.getElementById("username").value
             let name = document.getElementById("name").value
             let nik = document.getElementById("nik").value
