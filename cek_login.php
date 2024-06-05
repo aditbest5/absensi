@@ -50,23 +50,23 @@ if ($_GET['act'] == 'login') {
     }
 
     echo json_encode($response);
-} else if ($_GET['act'] == 'register' && $_GET['role'] == 'admin') {
+} else if ($_GET['act'] == 'register-admin' && $_GET['role'] == 'admin') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $email = $_POST['email'];
     $name = $_POST['name'];
     $nik = $_POST['nik'];
-    $role = 'admin';
-    $sql = mysqli_query($conn, "select * from tbl_users where email = '" . $email . "' and username = '" . $username . "'");
+    $role = $_GET['role'];
+    $sql = mysqli_query($conn, "select * from tbl_users where email = '" . $email . "' and username = '" . $username . "' and nik = '" . $nik . "'");
     $cek = mysqli_num_rows($sql);
     $data = mysqli_fetch_array($sql);
     if ($cek > 0) {
-        $response = array("status" => "Email/Username sudah ada");
+        $response = array("status" => "Email/NIK/Username sudah ada");
     } else {
         $insert_user = mysqli_query($conn, "insert into tbl_users(username,password,email,name,nik,role)values('" . $username . "','" . $hashedPassword . "','" . $email . "','" . $name . "','" . $nik . "','" . $role . "')");
         if ($insert_user) {
-            $_SESSION['user_id'] = $data['id'];
+            $_SESSION['user_id'] = mysqli_insert_id($conn);
             $_SESSION['email'] = $email;
             $_SESSION['name'] = $name;
             $_SESSION['nik'] = $nik;

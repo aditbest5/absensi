@@ -107,8 +107,7 @@ if ($_SESSION['status'] != 'login') {
                                     </a>
                                     <div class="dropdown-menu">
                                         <div class="d-flex flex-column justify-content-between">
-                                            <button class="" href="#">My Profile</button>
-                                            <button class="" href="setting">Settings</button>
+                                            <button class="" href="setting">My Profile</button>
                                             <button class="btn-info" onclick="logout()">Log Out</button>
                                         </div>
                                     </div>
@@ -198,24 +197,44 @@ if ($_SESSION['status'] != 'login') {
                                 <span class="link-title">Dashboard</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="check-in">
-                                <i class="icofont-pie-chart"></i>
-                                <span class="link-title">Kehadiran</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="log-absensi">
-                                <i class="icofont-book-alt"></i>
-                                <span class="link-title">Log Absensi</span>
-                            </a>
-                        </li>
+                        <?php
+                        if ($_SESSION['role'] == 'pegawai') { ?>
+                            <li>
+                                <a href="check-in">
+                                    <i class="icofont-camera"></i>
+                                    <span class="link-title">Kehadiran</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="log-absensi">
+                                    <i class="icofont-book-alt"></i>
+                                    <span class="link-title">Log Absensi</span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php
+                        if ($_SESSION['role'] == 'admin') { ?>
+                            <li>
+                                <a href="pengaturan-akun">
+                                    <i class="icofont-attachment"></i>
+                                    <span class="link-title">Data Karyawan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="absensi-karyawan">
+                                    <i class="icofont-database"></i>
+                                    <span class="link-title">Data Absensi Karyawan</span>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <li>
                             <a href="setting">
                                 <i class="icofont-ui-settings"></i>
                                 <span class="link-title">Settings</span>
                             </a>
                         </li>
+
+
                     </ul>
                     <!-- End Nav -->
                 </div>
