@@ -25,6 +25,7 @@ if ($_GET['act'] == 'insert_karyawan') {
     $nik = $_POST['nik'];
     $email = $_POST['email'];
     $username = $_POST['username'];
+    $password = $_POST['password'];
     $hash_password = password_hash($password, PASSWORD_DEFAULT);
     $insert_karyawan = mysqli_query($conn, "INSERT INTO tbl_users(name,nik,email,username,password) VALUES('" . $name . "','" . $nik . "','" . $email . "','" . $username . "','" . $hash_password . "')");
     if ($insert_karyawan) {
@@ -112,7 +113,7 @@ if ($_GET['act'] == 'update_password') {
         exit();
     }
 }
-if (isset($_GET['act']) == 'month') {
+if ($_GET['act'] == 'month') {
     $month = $_POST['month'];
     $year = date('Y');
     $start_date = "$year-$month-01";
@@ -198,7 +199,7 @@ if ($_GET['act'] == 'check_attendance') {
         echo json_encode(['status' => 'not_found']);
     }
 }
-if ($_GET['act' == 'update_profil']) {
+if ($_GET['act'] == 'update_profil') {
     $user_id = $_SESSION['user_id'];
     $query = "UPDATE tbl_users SET email = '" . $_POST['email'] . "', username = '" . $_POST['username'] . "', name = '" . $_POST['name'] . "', nik='" . $_POST['nik'] . "' WHERE user_id = '" . $user_id . "'";
     $result = mysqli_query($conn, $query);
@@ -209,4 +210,28 @@ if ($_GET['act' == 'update_profil']) {
         $response = array("status" => "failed");
         header("Location: setting?message=error");
     }
+}
+if ($_GET['act'] == 'delete-karyawan' && isset($_GET['id'])) {
+    $user_id = $_GET['id'];
+    $query = "DELETE FROM tbl_users WHERE id = ?";
+
+    if ($stmt = mysqli_prepare($conn, $query)) {
+        mysqli_stmt_bind_param($stmt, "i", $user_id);
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
+            $response = array("status" => "success");
+            // header("Location: pengaturan-akun");
+        } else {
+            $response = array("status" => "failed");
+            // header("Location: pengaturan-akun?message=gagal-delete");
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        $response = array("status" => "failed");
+        // header("Location: pengaturan-akun?message=gagal-prepare");
+    }
+
+    echo json_encode($response);
 }
