@@ -113,7 +113,7 @@ if ($_GET['act'] == 'update_password') {
         exit();
     }
 }
-if ($_GET['act'] == 'month') {
+if ($_GET['act'] == 'get_month') {
     $month = $_POST['month'];
     $year = date('Y');
     $start_date = "$year-$month-01";
@@ -231,6 +231,66 @@ if ($_GET['act'] == 'delete-karyawan' && isset($_GET['id'])) {
     } else {
         $response = array("status" => "failed");
         // header("Location: pengaturan-akun?message=gagal-prepare");
+    }
+
+    echo json_encode($response);
+}
+if ($_GET['act'] == 'update-karyawan' && $_GET['id']) {
+    if (isset($_POST['name']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['nik'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $nik = $_POST['nik'];
+
+        // Lakukan tindakan update kehadiran sesuai dengan status yang diterima
+
+        $user_id = $_GET['id'];
+
+        // Menggunakan prepared statements untuk mencegah SQL Injection
+        $stmt = $conn->prepare("UPDATE tbl_users SET name = ?, email = ?, username = ?, nik = ? WHERE id = ?");
+        $stmt->bind_param("ssssi", $name, $email, $username, $nik, $user_id);
+
+        if ($stmt->execute()) {
+            // Success response
+            $response = array("status" => "success");
+            header("Location: pengaturan-akun");
+            exit(); // Menghentikan eksekusi script setelah redirect
+        } else {
+            $response = array("status" => "failed");
+            header("Location: edit-karyawan?id=" . $_GET['id'] . "&pesan=gagal_update");
+            exit(); // Menghentikan eksekusi script setelah redirect
+        }
+    } else {
+        // Jika status tidak diterima
+        $response = array("status" => "Data Not Received");
+    }
+
+    // Mengirimkan response dalam format JSON
+    echo json_encode($response);
+}
+if ($_GET['act'] == 'update-password-karyawan') {
+    if (isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_GET['id'])) {
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+        $user_id = $_GET['id'];
+
+        if ($password === $confirm_password) {
+            $password_hash_new = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare("UPDATE tbl_users SET password = ? WHERE id = ?");
+            $stmt->bind_param("si", $password_hash_new, $user_id); // 'si' means string and integer
+
+            if ($stmt->execute()) {
+                $response = array("status" => "success");
+            } else {
+                $response = array("status" => "failed");
+            }
+            $stmt->close();
+        } else {
+            $response = array("status" => "failed", "message" => "Passwords do not match");
+        }
+    } else {
+        $response = array("status" => "failed", "message" => "Invalid input");
     }
 
     echo json_encode($response);

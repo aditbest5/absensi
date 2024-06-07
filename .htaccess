@@ -17,3 +17,6 @@ RewriteRule ^pengaturan-akun$ views/pengaturan_akun.php [L]
 RewriteRule ^tambah-karyawan$ views/tambah_karyawan.php [L]
 RewriteRule ^absensi-karyawan$ views/absensi_karyawan.php [L]
 RewriteRule ^ubah-password$ views/ubah_password.php [L]
+RewriteCond %{QUERY_STRING} ^id=([0-9]+)$
+
+RewriteRule ^edit-karyawan$ views/edit_karyawan.php?id=%1 [L]

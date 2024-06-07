@@ -29,7 +29,7 @@
                             echo "<td class='text-center'>" . htmlspecialchars($row['email']) . "</td>";
                             echo "<td class='text-center'>" . htmlspecialchars($row['username']) . "</td>";
                             echo "<td class='text-center'>" . htmlspecialchars($row['role']) . "</td>";
-                            echo "<td class='text-center'><button  class='btn btn-warning'>Edit</button> | <button class='btn btn-danger' onclick='deleteKaryawan(" . $row['id'] . ")'>Delete</button></td>";
+                            echo "<td class='text-center'><a href='edit-karyawan?id=" . $row['id'] .  "' class='btn btn-warning'>Edit</a> | <button class='btn btn-danger' onclick='deleteKaryawan(" . $row['id'] . ")'>Delete</button></td>";
                             echo "</tr>";
                         }
                         mysqli_close($conn);
@@ -46,6 +46,16 @@
                 title: "Are you sure?",
                 text: "Are you sure you want to delete this employee?",
                 icon: "warning",
+                buttons: {
+                    cancel: "No",
+                    confirm: {
+                        text: "Yes",
+                        value: true,
+                        visible: true,
+                        className: "",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then(willDelete => {
@@ -58,6 +68,7 @@
                         }).then(response => response.json())
                         .then(res => {
                             swal("Deleted!", "Employee Data has been deleted!", "success");
+                            window.location.href = 'pengaturan-akun '
                         })
                 }
             });
