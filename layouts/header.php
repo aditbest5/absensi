@@ -107,7 +107,7 @@ if ($_SESSION['status'] != 'login') {
                                     </a>
                                     <div class="dropdown-menu">
                                         <div class="d-flex flex-column justify-content-between">
-                                            <button class="" href="setting">My Profile</button>
+                                            <button><a href="setting">My Profile</a></button>
                                             <button class="btn-info" onclick="logout()">Log Out</button>
                                         </div>
                                     </div>

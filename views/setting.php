@@ -14,8 +14,6 @@
                 $data = $result->fetch_assoc();
                 $stmt->close();
             }
-            echo $_SESSION['user_id'];
-
             ?>
             <!-- Form -->
             <form action="update_profil.php?act=update_profil" method="POST">

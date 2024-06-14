@@ -60,6 +60,7 @@ if (isset($_SESSION['status']) == 'login') {
                     })
                 }).then(response => response.json()).then(data => {
                     console.log(data?.status)
+                    console.log(data);
                     if (data?.status == "success") {
                         swal({
                             title: "Login Success",

@@ -10,6 +10,7 @@ if ($_GET['act'] == 'login') {
     $sql = mysqli_query($conn, "select * from tbl_users where email = '" . $email . "' or nik = '" . $email . "'");
     $data = mysqli_fetch_array($sql);
     $cek = mysqli_num_rows($sql);
+    $response = array('status' => password_verify($password, $data['password']));
     if ($cek > 0 && password_verify($password, $data['password'])) {
         $_SESSION['user_id'] = $data['id'];
         $_SESSION['email'] = $data['email'];

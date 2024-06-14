@@ -3,10 +3,10 @@
      <div class="card mb-3 h-100">
          <div class="card-body text-center">
              <h3 class="mt-4">Selamat Datang, <?php echo $_SESSION['name'] ?> !</h3>
-             <?php if($_SESSION['role'] !== 'admin'){
-                echo '<h4 class="mt-4">Jangan Lupa Absen!</h4>
+             <?php if ($_SESSION['role'] == 'pegawai') {
+                    echo '<h4 class="mt-4">Jangan Lupa Absen!</h4>
                 ';
-             } ?>
+                } ?>
          </div>
          <div class="card-footer">
              <marquee behavior="scroll" direction="left" id="running-text">
