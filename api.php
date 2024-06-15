@@ -159,14 +159,15 @@ if ($_GET['act'] === 'get_attendance') {
     $end_date = date("Y-m-t", strtotime($start_date));
     while ($start_date <= $end_date) {
         // Periksa apakah ada data absensi pada tanggal ini
-        $query = mysqli_query($conn, "SELECT * FROM tbl_kehadiran where user_id = '" . $employee . "' and created_date = '" . $start_date . "'");
+        $query = mysqli_query($conn, "SELECT * FROM tbl_kehadiran join tbl_users on tbl_kehadiran.user_id = tbl_users.id where user_id = '" . $employee . "' and created_date = '" . $start_date . "' ");
         $attendance_data = mysqli_fetch_array($query); // Mengisi data absensi dari database
 
         if ($attendance_data) {
             // Tampilkan data absensi
             echo "<tr>";
             echo "<td>$start_date</td>"; // Tampilkan tanggal
-            echo "<td> $_SESSION[nik] </td>"; // Tampilkan NIK
+            echo "<td> $attendance_data[name] </td>"; // Tampilkan nama
+            echo "<td> $attendance_data[nik] </td>"; // Tampilkan NIK
             echo "<td>$attendance_data[pilih_jadwal]</td>"; // Tampilkan jadwal shift
             echo "<td>$attendance_data[operasi]</td>"; // Tampilkan operasi
             echo "<td>$attendance_data[longitude]</td>"; // Tampilkan longitude
@@ -175,9 +176,12 @@ if ($_GET['act'] === 'get_attendance') {
             echo "</tr>";
         } else {
             // Tampilkan status "libur"
+            $query_employee = mysqli_query($conn, "SELECT * FROM tbl_users where id = '" . $employee . "'");
+            $employee_data = mysqli_fetch_array($query_employee);
             echo "<tr>";
             echo "<td>$start_date</td>"; // Tampilkan tanggal
-            echo "<td>" . $_SESSION['nik'] . "</td>"; // Tampilkan NIK
+            echo "<td> $employee_data[name] </td>"; // Tampilkan nama
+            echo "<td> $employee_data[nik] </td>"; // Tampilkan NIK
             echo "<td>-</td>"; // Kolom jadwal shift diisi dengan "-"
             echo "<td>-</td>"; // Kolom operasi diisi dengan "-"
             echo "<td>-</td>"; // Kolom longitude diisi dengan "-"
