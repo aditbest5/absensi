@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Install dependencies using Composer
-                sh 'composer install'
+                // sh 'composer install'
             }
         }
 
