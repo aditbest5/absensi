@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
 $database = "absensi";
-$password = "";
+$password = "0215464580An#";
 $user = "root";
 $conn = mysqli_connect($hostname, $user, $password, $database);
 
