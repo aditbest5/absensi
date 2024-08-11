@@ -5,12 +5,12 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                // Install dependencies using Composer
-                // sh 'composer install'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         // Install dependencies using Composer
+        //         sh 'composer install'
+        //     }
+        // }
 
         stage('Deliver') {
             steps {
