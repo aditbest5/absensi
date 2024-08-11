@@ -42,7 +42,7 @@ if ($_SESSION['status'] != 'login') {
     <!-- ======= MAIN STYLES ======= -->
     <link rel="stylesheet" href="template/assets/css/style.css">
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="/absensi/template/assets/js/jquery.min.js"></script>
+    <script src="template/assets/js/jquery.min.js"></script>
     <!-- SheetJS (XLSX) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <!-- jsPDF -->

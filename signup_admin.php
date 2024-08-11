@@ -19,19 +19,19 @@ if (isset($_SESSION['status']) == 'login') {
     <meta name="keywords" content="">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/absensi/template/assets/img/favicon.png">
+    <link rel="shortcut icon" href="template/assets/img/favicon.png">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 
     <!-- ======= BEGIN GLOBAL MANDATORY STYLES ======= -->
-    <link rel="stylesheet" href="/absensi/template/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/absensi/template/assets/fonts/icofont/icofont.min.css">
-    <link rel="stylesheet" href="/absensi/template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="template/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template/assets/fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
     <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- ======= MAIN STYLES ======= -->
-    <link rel="stylesheet" href="/absensi/template/assets/css/style.css">
+    <link rel="stylesheet" href="template/assets/css/style.css">
     <!-- ======= END MAIN STYLES ======= -->
     <script>
         function signup_admin(e) {
@@ -183,10 +183,10 @@ if (isset($_SESSION['status']) == 'login') {
     <!-- End Footer -->
 
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
-    <script src="/absensi/template/assets/js/jquery.min.js"></script>
-    <script src="/absensi/template/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/absensi/template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="/absensi/template/assets/js/script.js"></script>
+    <script src="template/assets/js/jquery.min.js"></script>
+    <script src="template/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="template/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="template/assets/js/script.js"></script>
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
 </body>
 
